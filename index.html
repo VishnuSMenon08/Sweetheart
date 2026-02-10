@@ -1,13 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sweetheart</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You</title>
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+
+  <audio id="bg-music" src="./resources/music/background.m4a" loop></audio>
+  <audio id="type-sound" src="./resources/music/typewriter.mp3"></audio>
+
+  <div id="overlay">
+    <button id="play-btn">▶</button>
+    <p class="hint">Tap to begin</p>
+  </div>
+
+  <div class="container">
+    <div id="text"></div>
+    <div class="cursor">|</div>
+  </div>
+
+  <script src="./src/main.js"></script>
+</body>
 </html>
