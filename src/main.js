@@ -9,9 +9,9 @@ const messages = [
   "And that’s okay, sometimes space just happens.",
   "didn't want to make it dramatic.",
   "but also couldn't pretend like I don't care.",
-  "So, I thought I would write in SPACE, just like this...",
+  "So, I thought I would write in \"SPACE\", just like this...",
   "then you could see from anywhere ;) ",
-  "Happy valentines day Divya ❤️ ",
+  "Happy valentine's day Divya ❤️ ",
 ];
 
 const textEl = document.getElementById("text");
@@ -49,14 +49,28 @@ for (let i = 0; i < numStars; i++) {
   starsContainer.appendChild(star);
 }
 
+const initializeScreen = () => {
+  overlay.classList.remove("fade-out");
+  msgIndex = 0;
+  charIndex = 0;
+  setTimeout( () => {
+    overlay.classList.add("fade-in");
+    document.body.appendChild(overlay);
+    textEl.textContent = "";
+  }, 1200);
+
+
+}
 
 function typeMessage() {
   // typeSound.currentTime = 0;
-  typeSound.play();
+  // typeSound.play();
   if (charIndex < messages[msgIndex].length) {
     textEl.textContent += messages[msgIndex][charIndex];
     // typeSound.currentTime = 3;
-    // typeSound.play();
+    typeSound.playbackRate = 1.2;
+    typeSound.volume = 0.7;
+    typeSound.play();
     charIndex++;
     setTimeout(typeMessage, 70);
   } else {
@@ -72,6 +86,7 @@ function typeMessage() {
         typeSound.pause();
         setTimeout(() => {
           bgMusic.pause();
+          initializeScreen();
         }, 5000)
       }
     }, 1200);
