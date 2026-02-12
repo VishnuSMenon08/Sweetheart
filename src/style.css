@@ -112,7 +112,7 @@ body {
   inset: -40px;
   background: radial-gradient(
     circle,
-    rgba(255, 77, 109, 0.14),
+    rgba(255, 77, 110, 0.211),
     transparent 70%
   );
   z-index: -1;
@@ -175,6 +175,7 @@ body {
   cursor: pointer;
   animation: pulseBtn 2.4s infinite;
   transition: transform 0.25s ease;
+  opacity: 0.8;
 }
 
 #play-btn:active {

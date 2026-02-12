@@ -70,7 +70,7 @@ function typeMessage() {
     textEl.textContent += messages[msgIndex][charIndex];
     // typeSound.currentTime = 3;
     typeSound.playbackRate = 1.2;
-    typeSound.volume = 0.5;
+    typeSound.volume = 0.4;
     typeSound.play();
     charIndex++;
     setTimeout(typeMessage, 70);
@@ -155,7 +155,7 @@ function createBalloon() {
   balloon.style.left = Math.random() * 100 + "vw";
 
   // Random color
-  const colors = ["#ff4d6e91", "#32943595", "#2543b996", "#b5179d8b", "#7109b788"];
+  const colors = ["#ff4d6e91", "#3294356e", "#2543b968", "#b5179d6b", "#7109b76c"];
   balloon.style.background =
     colors[Math.floor(Math.random() * colors.length)];
 
