@@ -1,15 +1,15 @@
 const messages = [
-  "Hey.",
-  "I’ve been meaning to tell you something,",
+  "Hey..",
+  "I’ve been meaning to tell you something.",
   "..figured today was a good excuse to say that.",
-  "Meeting you was unexpected...",
+  "Meeting you was unexpected..!",
   "But somehow, it felt right.",
   "It wasn’t planned, but I’m glad it happened.",
   "and now here we are, a little quiet..",
   "And that’s okay, sometimes space just happens.",
   "didn't want to make it dramatic.",
   "but also couldn't pretend like I don't care.",
-  "So, I thought I would write in \"SPACE\", just like this...",
+  "So, I thought I would write in \"S.P.A.C.E\", just like this...",
   "then you could see from anywhere ;) ",
   "Happy valentine's day Divya ❤️ ",
 ];
@@ -57,6 +57,7 @@ const initializeScreen = () => {
     overlay.classList.add("fade-in");
     document.body.appendChild(overlay);
     textEl.textContent = "";
+    document.getElementById("balloon-container").innerHTML = "";
   }, 1200);
 
 
@@ -69,7 +70,7 @@ function typeMessage() {
     textEl.textContent += messages[msgIndex][charIndex];
     // typeSound.currentTime = 3;
     typeSound.playbackRate = 1.2;
-    typeSound.volume = 0.7;
+    typeSound.volume = 0.5;
     typeSound.play();
     charIndex++;
     setTimeout(typeMessage, 70);
@@ -81,6 +82,9 @@ function typeMessage() {
         textEl.textContent = "";
       }
       if (msgIndex < messages.length) {
+        if (msgIndex == messages.length - 1){
+          launchBalloons();
+        }
         typeMessage();
       }else{
         typeSound.pause();
@@ -139,5 +143,44 @@ setInterval(() => {
   }
 
 }, 3000);
+
+
+// Celebratation 
+
+function createBalloon() {
+  const balloon = document.createElement("div");
+  balloon.classList.add("balloon");
+
+  // Random horizontal position
+  balloon.style.left = Math.random() * 100 + "vw";
+
+  // Random color
+  const colors = ["#ff4d6e91", "#32943595", "#2543b996", "#b5179d8b", "#7109b788"];
+  balloon.style.background =
+    colors[Math.floor(Math.random() * colors.length)];
+
+  // Random animation duration
+  const duration = 6 + Math.random() * 4;
+  balloon.style.animationDuration = duration + "s";
+
+  document.getElementById("balloon-container").appendChild(balloon);
+
+  // Remove after animation
+  setTimeout(() => {
+    balloon.remove();
+  }, duration * 1000);
+}
+
+function launchBalloons() {
+  let count = 0;
+  const interval = setInterval(() => {
+    createBalloon();
+    count++;
+
+    if (count > 25) {
+      clearInterval(interval);
+    }
+  }, 300);
+}
 
 
