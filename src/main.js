@@ -70,7 +70,7 @@ function typeMessage() {
     textEl.textContent += messages[msgIndex][charIndex];
     // typeSound.currentTime = 3;
     typeSound.playbackRate = 1.2;
-    typeSound.volume = 0.4;
+    typeSound.volume = 0.3;
     typeSound.play();
     charIndex++;
     setTimeout(typeMessage, 70);
